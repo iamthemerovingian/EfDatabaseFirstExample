@@ -15,6 +15,7 @@ namespace EfDatabaseFirstExample
             {
                 dbContext.tblExceptionLogs.Add(new tblExceptionLog
                 {
+                    Created = DateTime.Now,
                     ServerName = "Sample Server Name",
                     Message = "Sample Message",
                     ClassName = "Sample Class Name",
