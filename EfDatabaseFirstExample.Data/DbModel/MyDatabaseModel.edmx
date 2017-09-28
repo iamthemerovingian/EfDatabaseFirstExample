@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="MyDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblApiExceptionLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Created" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ServerName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Message" Type="varchar(max)" Nullable="false" />
+          <Property Name="ClassName" Type="varchar(max)" Nullable="false" />
+          <Property Name="MethodName" Type="varchar(max)" Nullable="false" />
+          <Property Name="StackTrace" Type="varchar(max)" Nullable="false" />
+          <Property Name="InnerException" Type="varchar(max)" />
+          <Property Name="AdditionalInfo" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="tblExceptionLogs">
           <Key>
             <PropertyRef Name="Id" />
@@ -20,6 +34,7 @@
           <Property Name="AdditionalInfo" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="MyDatabaseModelStoreContainer">
+          <EntitySet Name="tblApiExceptionLogs" EntityType="Self.tblApiExceptionLogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblExceptionLogs" EntityType="Self.tblExceptionLogs" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -42,7 +57,22 @@
         </EntityType>
         <EntityContainer Name="MyDatabaseContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblExceptionLogs" EntityType="Self.tblExceptionLog" />
+          <EntitySet Name="tblApiExceptionLogs" EntityType="MyDatabaseModel.tblApiExceptionLog" />
         </EntityContainer>
+        <EntityType Name="tblApiExceptionLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ServerName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClassName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MethodName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StackTrace" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="InnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdditionalInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -61,6 +91,21 @@
                 <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
                 <ScalarProperty Name="InnerException" ColumnName="InnerException" />
                 <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblApiExceptionLogs">
+            <EntityTypeMapping TypeName="MyDatabaseModel.tblApiExceptionLog">
+              <MappingFragment StoreEntitySet="tblApiExceptionLogs">
+                <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+                <ScalarProperty Name="InnerException" ColumnName="InnerException" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

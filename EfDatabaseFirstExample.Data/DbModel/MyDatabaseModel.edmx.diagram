@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="590b0c04cc6a4adda6fb6500b1cd2828" Name="Diagram1">
         <EntityTypeShape EntityType="MyDatabaseModel.tblExceptionLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyDatabaseModel.tblApiExceptionLog" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

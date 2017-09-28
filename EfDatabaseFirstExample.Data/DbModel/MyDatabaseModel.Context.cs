@@ -26,5 +26,6 @@ namespace EfDatabaseFirstExample.Data.DbModel
         }
     
         public virtual DbSet<tblExceptionLog> tblExceptionLogs { get; set; }
+        public virtual DbSet<tblApiExceptionLog> tblApiExceptionLogs { get; set; }
     }
 }

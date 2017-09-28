@@ -25,6 +25,18 @@ namespace EfDatabaseFirstExample
                     AdditionalInfo = "Should give some meaningful information about the exception"
                 });
 
+                dbContext.tblApiExceptionLogs.Add(new tblApiExceptionLog
+                {
+                    Created = DateTime.Now,
+                    ServerName = "Sample Server Name",
+                    Message = "Sample Message",
+                    ClassName = "Sample Class Name",
+                    MethodName = "Sample Method Name",
+                    StackTrace = "Long Stack Trace with lots of lines",
+                    InnerException = "Might be null, might not be null",
+                    AdditionalInfo = "Should give some meaningful information about the exception"
+                });
+
                 dbContext.SaveChanges();
             }
 

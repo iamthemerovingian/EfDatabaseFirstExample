@@ -64,6 +64,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyDatabaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DbModel\tblApiExceptionLog.cs">
+      <DependentUpon>MyDatabaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbModel\tblExceptionLog.cs">
       <DependentUpon>MyDatabaseModel.tt</DependentUpon>
     </Compile>
