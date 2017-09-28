@@ -1,4 +1,5 @@
 ﻿using EfDatabaseFirstExample.Data.DbModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,14 @@ namespace EfDatabaseFirstExample
                 dbContext.SaveChanges();
             }
 
+            using (var dbContext = new MyDatabaseContext())
+            {
+                var query1 = dbContext.tblExceptionLogs.ToList();
+                Console.WriteLine(JsonConvert.SerializeObject(query1, Formatting.Indented));
 
+                var query2 = dbContext.tblApiExceptionLogs.ToList();
+                Console.WriteLine(JsonConvert.SerializeObject(query2, Formatting.Indented));
+            }
         }
     }
 }
