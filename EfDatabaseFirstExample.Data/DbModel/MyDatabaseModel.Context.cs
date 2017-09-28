@@ -13,10 +13,10 @@ namespace EfDatabaseFirstExample.Data.DbModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MyDatabaseEntities : DbContext
+    public partial class MyDatabaseContext : DbContext
     {
-        public MyDatabaseEntities()
-            : base("name=MyDatabaseEntities")
+        public MyDatabaseContext()
+            : base("name=MyDatabaseContext")
         {
         }
     
