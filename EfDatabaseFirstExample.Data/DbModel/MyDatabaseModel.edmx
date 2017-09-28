@@ -41,7 +41,7 @@
           <Property Name="InnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AdditionalInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="MyDatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MyDatabaseContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblExceptionLogs" EntityType="Self.tblExceptionLog" />
         </EntityContainer>
       </Schema>
@@ -49,7 +49,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MyDatabaseModelStoreContainer" CdmEntityContainer="MyDatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="MyDatabaseModelStoreContainer" CdmEntityContainer="MyDatabaseContext">
           <EntitySetMapping Name="tblExceptionLogs">
             <EntityTypeMapping TypeName="MyDatabaseModel.tblExceptionLog">
               <MappingFragment StoreEntitySet="tblExceptionLogs">
